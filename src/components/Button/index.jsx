@@ -1,9 +1,9 @@
 import React from 'react'
-import style from './buttom.module.scss'
+import style from './button.module.scss'
 
 const Button = ({buttonText, onClick}) => {
   return (
-    <button onClick={onClick}>{buttonText}</button>
+    <button className={style.button} onClick={onClick}>{buttonText}</button>
   )
 }
 

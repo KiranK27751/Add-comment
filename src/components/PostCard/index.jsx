@@ -3,6 +3,7 @@ import TextArea from '../TextArea'
 import Button from '../Button'
 import style from './postcard.module.scss'
 import PostList from '../PostList'
+import uuid from 'react-uuid'
 
 const PostCard = () => {
 const [text, setText]= useState("")
@@ -14,7 +15,7 @@ const onChange=(e) => {
 
 const postComment=()=>{
   if(text!== ""){
-    setComent([...comment, {comment: text}])
+    setComent([...comment, {id: uuid(), comment: text}])
     setText("")
     console.log(comment)
   }
@@ -23,16 +24,21 @@ const postComment=()=>{
   }
 }
 
+const onDelete = (id)=>{
+  console.log(55555555)
+  return comment.filter(item => item.id !== id)
+}
+
   return(
     <div className={style.postCard}>
       <TextArea value={text} placeholder="Enter the comment" labelText="Comment:" onChange={onChange}/>
       <Button buttonText="Post" onClick={postComment}/>
 
       <div className={style.postList}>
-        {comment.map(item=>{
+        {comment.map((item,index)=>{
           return(
-            <div className={style.card}>
-              <PostList comment={item.comment}/>
+            <div key={index} className={style.card}>
+              <PostList comment={item.comment} onDelete={()=>onDelete(item.id)}/>
             </div>
           )
         })}
