@@ -1,0 +1,13 @@
+.postCard {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  .postList {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    .card {
+      margin-bottom: 10px;
+    }
+  }
+}
