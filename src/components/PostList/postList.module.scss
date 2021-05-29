@@ -5,4 +5,8 @@
   border: 1px solid rgb(207, 207, 207);
   display: flex;
   justify-content: space-between;
+  .comment {
+    max-width: 150px;
+    overflow: auto;
+  }
 }

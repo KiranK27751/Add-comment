@@ -25,20 +25,23 @@ const postComment=()=>{
 }
 
 const onDelete = (id)=>{
-  console.log(55555555)
-  return comment.filter(item => item.id !== id)
+  const remainingArray = comment.filter(item => item.id!==id)
+  setComent(remainingArray)
+}
+const onDone = ()=>{
+
 }
 
   return(
     <div className={style.postCard}>
       <TextArea value={text} placeholder="Enter the comment" labelText="Comment:" onChange={onChange}/>
-      <Button buttonText="Post" onClick={postComment}/>
+      <div className={style.postButton}><Button buttonText="Post" onClick={postComment}/></div>
 
       <div className={style.postList}>
         {comment.map((item,index)=>{
           return(
             <div key={index} className={style.card}>
-              <PostList comment={item.comment} onDelete={()=>onDelete(item.id)}/>
+              <PostList comment={item.comment} onDone={onDone} onDelete={()=>onDelete(item.id)}/>
             </div>
           )
         })}

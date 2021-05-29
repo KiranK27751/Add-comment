@@ -1,9 +1,9 @@
 import React from 'react'
 import style from './button.module.scss'
 
-const Button = ({buttonText, onClick}) => {
+const Button = ({buttonText, onClick, customClass}) => {
   return (
-    <button className={style.button} onClick={onClick}>{buttonText}</button>
+    <button style={{backgroundColor: customClass? customClass: "#0080ff"}} className={ style.button} onClick={onClick}>{buttonText}</button>
   )
 }
 
