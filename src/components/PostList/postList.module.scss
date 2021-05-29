@@ -1,12 +1,14 @@
 .postList {
+  display: flex;
+  flex-direction: column;
   border: 1px solid black;
   padding: 5px;
   border-radius: 8px;
   border: 1px solid rgb(207, 207, 207);
   display: flex;
   justify-content: space-between;
-  .comment {
-    max-width: 150px;
-    overflow: auto;
+  .buttons{
+    display: flex;
+    justify-content: space-between;
   }
 }
